@@ -1,0 +1,12 @@
+{
+  "i18n-ally.localesPaths": ["src/lang/package"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.namespace": true,
+  "i18n-ally.enabledParsers": ["json"],
+  "i18n-ally.sourceLanguage": "zh-cn",
+  "i18n-ally.displayLanguage": "zh-CN",
+  "i18n-ally.enabledFrameworks": ["vue", "react"],
+  "god.tsconfig": "./tsconfig.json",
+  "vue-i18n.i18nPaths": "src/lang/package"
+}
