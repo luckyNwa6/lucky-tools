@@ -24,8 +24,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "@/typings/auto-imports.d.ts", // vue自带的ref，watch自动引入加这个防止爆红
-    "src/utils/dict.js"
+    "@/typings/auto-imports.d.ts" // vue自带的ref，watch自动引入加这个防止爆红
   ],
   "references": [
     {

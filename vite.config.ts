@@ -14,33 +14,12 @@ import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 const pathSrc = path.resolve(__dirname, 'src')
 
-// export default defineConfig({
-//   plugins: [vue(),createSvgIconsPlugin({
-//     // 阿里icon就放icons下了
-//     iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
-//     symbolId: 'icon-[dir]-[name]',
-//   })],
-//   resolve: {
-//     alias: {
-//       '@': path.resolve('./src'), // 相对路径别名配置，使用 @ 代替 src
-//     },
-//   },
-//    //scss全局变量一个配置
-//   css: {
-//     preprocessorOptions: {
-//       scss: {
-//         javascriptEnabled: true,
-//         additionalData: '@import "./src/styles/variable.scss";',
-//       },
-//     },
-//   },
-// })
 //改成箭头函数
 export default defineConfig(({ command, mode }) => {
   //获取各种环境下的对应的变量
   let env = loadEnv(mode, process.cwd())
   return {
-    // base: '/luckyVue3Template/', // 对应github静态路径
+    base: '/luckyTools/', // 对应github静态路径
     publicDir: 'public', // 静态资源服务的文件夹, 默认"public"
     build: {
       outDir: 'docs', //github部署那设置成这个即可

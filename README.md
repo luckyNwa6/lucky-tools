@@ -1,6 +1,6 @@
-# Vue3项目模板
+# 基于 Vue 实现常用工具网站
 
-## 🐶测试环境
+## 🐶 环境
 
 node 16+
 
@@ -8,18 +8,18 @@ node 16+
 
 Vue3+TypeScript+Pinia+Vite+vue-router+Element Plus
 
-包管理采用pnpm
+包管理采用 pnpm
 
 ```shell
 npm install -g pnpm
 pnpm install
 ```
 
-## 🐯代码提交规范
+## 🐯 代码提交规范
 
 husky 是一个 Git Hook 工具，可以让你在 Git 提交过程中自动运行脚本。
 
-当commit的时候会执行脚本，脚本会校验commit message是否符合规范。
+当 commit 的时候会执行脚本，脚本会校验 commit message 是否符合规范。
 
 严格安装如下规范:
 
@@ -33,13 +33,13 @@ husky 是一个 Git Hook 工具，可以让你在 Git 提交过程中自动运�
 | test     | 测试                     |
 | chore    | 构建过程或辅助工具的变动 |
 
-比如修复一个bug 必须是
+比如修复一个 bug 必须是
 
-fix: 修复bug
+fix: 修复 bug
 
 中间有:后面有空格
 
-## ⭐️开发工具
+## ⭐️ 开发工具
 
 推荐 VS Code 开发，配合插件如下：
 
@@ -55,12 +55,12 @@ fix: 修复bug
 | ESLint                        | 脚本代码检查                                     |
 | DotENV                        | env 文件高亮                                     |
 
-## 🚀优势
+## 🚀 优势
 
-1、自动按需引入组件，自动按需引入Vue相关API，自动引入ep图标
+1、自动按需引入组件，自动按需引入 Vue 相关 API，自动引入 ep 图标
 
-2、在vscode提交时候走husky流程，先走格式化代码和修复，以及提交必须走提交规范,代码有错误则不能提交
+2、在 vscode 提交时候走 husky 流程，先走格式化代码和修复，以及提交必须走提交规范,代码有错误则不能提交
 
-## 🐷其他
+## 🐷 其他
 
 暂无
