@@ -1,12 +1,12 @@
 name: 🚀 新功能提案
-description: 提议将新功能添加到 lucky-tools 中。
+description: 提议将新功能添加到 lucky-tools中.
 labels: ['enhancement', 'triage']
 
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for your interest in the project and taking the time to fill out this feature report!
+        感谢您对该项目的兴趣并花时间填写此功能报告！
 
   - type: dropdown
     id: request-type

@@ -1,5 +1,5 @@
 name: 🐞 Bug 提交
-description: File a bug report.
+description: 提交错误报告.
 labels: ['bug', 'triage']
 assignees:
   - CorentinTh
@@ -22,9 +22,8 @@ body:
     id: what-happened
     attributes:
       label: 发生了什么?
-      description: 另外请告诉我们，您预计会发生什么？如果您有屏幕截图，可以将其粘贴到此处。
-      placeholder: Tell us what you see!
-      value: 'A bug happened!'
+      description: 另外请告诉我们，您预计会发生什么?如果您有屏幕截图，可以将其粘贴到此处.
+      placeholder: bug截图
     validations:
       required: true
 
@@ -32,7 +31,7 @@ body:
     id: version
     attributes:
       label: 系统信息
-      description: 你是什​​么环境?您可以使用该npx envinfo --system --browsers命令来获取此信息
+      description: 您是什​​么环境?您可以使用该npx envinfo --system --browsers命令来获取此信息.
     validations:
       required: true
 
