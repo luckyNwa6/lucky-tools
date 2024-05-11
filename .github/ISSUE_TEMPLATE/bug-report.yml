@@ -41,8 +41,8 @@ body:
     attributes:
       label: 您在哪里遇到该错误?
       options:
-        - Public app (it-tools.tech)
-        - A self hosted
-        - Other (installations, docker, etc.)
+        - 博主网站
+        - 本地网站
+        - 其他 (docker, etc.)
     validations:
       required: true

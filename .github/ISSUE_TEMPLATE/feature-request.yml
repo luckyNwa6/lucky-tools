@@ -1,5 +1,5 @@
-name: 🚀 New feature proposal
-description: Propose a new feature to be added to IT-Tools.
+name: 🚀 新功能提案
+description: 提议将新功能添加到 lucky-tools 中。
 labels: ['enhancement', 'triage']
 
 body:
@@ -11,46 +11,46 @@ body:
   - type: dropdown
     id: request-type
     attributes:
-      label: What type of request is this?
+      label: 这是什么类型的请求?
       options:
-        - New tool idea
-        - New feature for an existing tool
-        - Deployment or CI/CD improvement
-        - Self-hosting improvement
-        - Other
+        - 新工具理念
+        - 现有工具的新理念
+        - 部署或CI/CD的改进
+        - 自托管改进
+        - 其他
     validations:
       required: true
 
   - type: textarea
     id: feature-description
     attributes:
-      label: Clear and concise description of the feature you are proposing
-      description: A clear and concise description of what the feature is.
-      placeholder: 'Example: a token generator tool'
+      label: 对您提议的功能进行清晰简洁的描述
+      description: 对功能的清晰、简洁的描述.
+      placeholder: '示例子: 令牌生成器工具'
     validations:
       required: true
 
   - type: textarea
     id: alternative
     attributes:
-      label: Is their example of this tool in the wild?
-      description: Provide link to already existing tool (like websites, apps, cli, ...) or npm packages that could be used or provide inspiration for the feature.
+      label: 他们是这个工具的实际例子吗?
+      description: 提供现有工具(如网站、应用程序、cli 等)或可使用的 npm 包的链接或为该功能提供灵感。
 
   - type: textarea
     id: additional-context
     attributes:
-      label: Additional context
-      description: Any other context or screenshots about the feature request here.
+      label: 额外的背景信息
+      description: 有关功能请求的任何其他上下文或屏幕截图请参见此处。
 
   - type: checkboxes
     id: checkboxes
     attributes:
-      label: Validations
-      description: Before submitting the issue, please make sure you do the following
+      label: 验证
+      description: 在提交问题之前，请确保您执行以下操作
       options:
-        - label: Check the feature is not already implemented in the project.
+        - label: 检查该功能尚未在项目中实现.
           required: true
-        - label: Check that there isn't already an issue that request the same feature to avoid creating a duplicate.
+        - label: 检查是否存在需要相同功能的问题，以避免创建重复项.
           required: true
-        - label: Check that the feature can be implemented in a client side only app (IT-Tools is client side only, no server).
+        - label: 检查该功能是否可以在仅客户端应用程序中实现(Lucky-Tools 仅是客户端，无服务器).
           required: true
