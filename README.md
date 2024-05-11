@@ -83,13 +83,24 @@ COPY dist /usr/share/nginx/html
 ```
 
 制作镜像
+
+```shell
 docker build -t luckynwa6/luckytools:2.0 .
 docker images
-发布到hub库
-docker login
+```
 
-发布
+发布到hub库
+
+```shell
+docker login
 docker push luckynwa6/luckytools:2.0
+```
+
+云服务使用 打开9090端口
+
+```shell
+docker run -d --name lucky-tools --restart unless-stopped -p 9090:80 luckynwa6/luckytools:2.0
+```
 
 方法3：
 docker compose up --build -d
