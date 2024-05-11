@@ -54,7 +54,6 @@ fix: 修复 bug
 | ESLint                        | 脚本代码检查                                     |
 | DotENV                        | env 文件高亮                                     |
 
-
 ## 🚀 部署
 
 方法1：
@@ -91,3 +90,8 @@ npm install -g rimraf
 
 配置 scripts 中 "clean": "npx rimraf node_modules",
 
+'NODE_OPTIONS' 不是内部或外部命令
+
+```shell
+npm install -g win-node-env
+```
