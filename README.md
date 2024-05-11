@@ -56,7 +56,13 @@ fix: 修复 bug
 
 ## 🚀 部署
 
-方法1：
+方法1:
+
+由于是静态直接放主服务器下,通过域名去访问了
+
+https://mytool.luckynwa.top/
+
+方法2：
 
 先build打包，只需配置dockerfile文件即可，
 配置如下
@@ -77,7 +83,7 @@ docker login
 发布
 docker push luckynwa6/luckytools:2.0
 
-方法2：
+方法3：
 docker compose up --build -d
 
 ## 🐷 其他

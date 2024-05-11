@@ -27,7 +27,9 @@ const toolStore = useToolStore();
 const { favoriteTools, toolsByCategory } = storeToRefs(toolStore);
 
 const tools = computed<ToolCategory[]>(() => [
-  ...(favoriteTools.value.length > 0 ? [{ name: t('tools.categories.favorite-tools'), components: favoriteTools.value }] : []),
+  ...(favoriteTools.value.length > 0
+    ? [{ name: t('tools.categories.favorite-tools'), components: favoriteTools.value }]
+    : []),
   ...toolsByCategory.value,
 ]);
 </script>
@@ -38,9 +40,7 @@ const tools = computed<ToolCategory[]>(() => [
       <RouterLink to="/" class="hero-wrapper">
         <HeroGradient class="gradient" />
         <div class="text-wrapper">
-          <div class="title">
-            Lucky - Tools
-          </div>
+          <div class="title">Lucky - Tools</div>
           <div class="divider" />
           <div class="subtitle">
             {{ $t('home.subtitle') }}
@@ -64,7 +64,7 @@ const tools = computed<ToolCategory[]>(() => [
             lucky-tools
 
             <!-- <c-link target="_blank" rel="noopener" href="https://github.com/luckyNwa6/lucky-tools"> -->
-              v{{ version }}
+            v{{ version }}
             <!-- </c-link> -->
 
             <template v-if="commitSha && commitSha.length > 0">
@@ -81,9 +81,7 @@ const tools = computed<ToolCategory[]>(() => [
           </div>
           <div>
             © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://github.com/luckyNwa6">
-              luckyNwa
-            </c-link>
+            <c-link target="_blank" rel="noopener" href="https://github.com/luckyNwa6"> luckyNwa </c-link>
           </div>
         </div>
       </div>
@@ -123,7 +121,7 @@ const tools = computed<ToolCategory[]>(() => [
         <c-tooltip position="bottom" :tooltip="$t('home.support')">
           <c-button
             round
-            href="https://www.luckynwa.top"
+            href="https://blog.csdn.net/weixin_44055864?spm=1011.2415.3001.5343"
             rel="noopener"
             target="_blank"
             class="support-button"
