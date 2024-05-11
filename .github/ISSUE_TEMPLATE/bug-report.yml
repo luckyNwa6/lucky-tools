@@ -1,4 +1,4 @@
-name: 🐞 Bug Report
+name: 🐞 Bug 提交
 description: File a bug report.
 labels: ['bug', 'triage']
 assignees:
@@ -7,22 +7,22 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        感谢您花时间填写此错误报告！
 
   - type: textarea
     id: bug-description
     attributes:
-      label: Describe the bug
-      description: A clear and concise description of what the bug is. If you intend to submit a PR for this issue, tell us in the description. Thanks!
-      placeholder: Bug description
+      label: 描述错误
+      description: 对错误内容的清晰简洁的描述，谢谢！
+      placeholder: 描述错误
     validations:
       required: true
 
   - type: textarea
     id: what-happened
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen? If you have a screenshot, you can paste it here.
+      label: 发生了什么?
+      description: 另外请告诉我们，您预计会发生什么？如果您有屏幕截图，可以将其粘贴到此处。
       placeholder: Tell us what you see!
       value: 'A bug happened!'
     validations:
@@ -31,15 +31,15 @@ body:
   - type: textarea
     id: version
     attributes:
-      label: System information
-      description: What is you environment? You can use the `npx envinfo --system --browsers` command to get this information.
+      label: 系统信息
+      description: 你是什​​么环境?您可以使用该npx envinfo --system --browsers命令来获取此信息
     validations:
       required: true
 
   - type: dropdown
     id: app-type
     attributes:
-      label: Where did you encounter the bug?
+      label: 您在哪里遇到该错误?
       options:
         - Public app (it-tools.tech)
         - A self hosted
