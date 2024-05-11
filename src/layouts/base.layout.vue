@@ -39,7 +39,7 @@ const tools = computed<ToolCategory[]>(() => [
         <HeroGradient class="gradient" />
         <div class="text-wrapper">
           <div class="title">
-            IT - TOOLS
+            Lucky - Tools
           </div>
           <div class="divider" />
           <div class="subtitle">
@@ -61,11 +61,11 @@ const tools = computed<ToolCategory[]>(() => [
 
         <div class="footer">
           <div>
-            IT-Tools
+            lucky-tools
 
-            <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
+            <!-- <c-link target="_blank" rel="noopener" href="https://github.com/luckyNwa6/lucky-tools"> -->
               v{{ version }}
-            </c-link>
+            <!-- </c-link> -->
 
             <template v-if="commitSha && commitSha.length > 0">
               -
@@ -81,8 +81,8 @@ const tools = computed<ToolCategory[]>(() => [
           </div>
           <div>
             © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://github.com/CorentinTh">
-              Corentin Thomasset
+            <c-link target="_blank" rel="noopener" href="https://github.com/luckyNwa6">
+              luckyNwa
             </c-link>
           </div>
         </div>
@@ -106,11 +106,11 @@ const tools = computed<ToolCategory[]>(() => [
           </c-button>
         </c-tooltip>
 
-        <c-tooltip :tooltip="$t('home.uiLib')" position="bottom">
+        <!-- <c-tooltip :tooltip="$t('home.uiLib')" position="bottom">
           <c-button v-if="config.app.env === 'development'" to="/c-lib" circle variant="text" :aria-label="$t('home.uiLib')">
             <icon-mdi:brush-variant text-20px />
           </c-button>
-        </c-tooltip>
+        </c-tooltip> -->
 
         <command-palette />
 
@@ -123,7 +123,7 @@ const tools = computed<ToolCategory[]>(() => [
         <c-tooltip position="bottom" :tooltip="$t('home.support')">
           <c-button
             round
-            href="https://www.buymeacoffee.com/cthmsst"
+            href="https://www.luckynwa.top"
             rel="noopener"
             target="_blank"
             class="support-button"

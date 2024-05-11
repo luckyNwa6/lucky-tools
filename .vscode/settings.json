@@ -2,5 +2,7 @@
   "i18n-ally.localesPaths": [
     "locales",
     "src/modules/i18n"
-  ]
+  ],
+  "i18n-ally.sourceLanguage": "zh",
+  "i18n-ally.keystyle": "nested"
 }
