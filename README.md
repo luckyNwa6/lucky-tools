@@ -70,15 +70,13 @@ COPY dist /usr/share/nginx/html
 ```
 
 制作镜像
-docker build -t luckyvue3 .
+docker build -t luckynwa6/luckytools:2.0 .
 docker images
 发布到hub库
 docker login
-前面镜像弄的比较快，名字luckyvue3
-修改镜像名称
-docker tag luckyvue3 luckynwa6/luckyvue3:1.0
+
 发布
-docker push luckynwa6/luckyvue3:1.0
+docker push luckynwa6/luckytools:2.0
 
 方法2：
 docker compose up --build -d
