@@ -32,3 +32,5 @@ coverage
 /playwright/.cache/
 # Webkit with playwright creates a salt file
 salt
+components.d.ts
+auto-imports.d.ts
