@@ -1,77 +1,42 @@
-## Configuration
-
-Set the global config
+## 常用指令
 
 ```shell
-git config --global user.name "[name]"
-git config --global user.email "[email]"
+git config --global init.defaultBranch main                默认main分支
+git config --global user.name "luckyNwa"                   本人账号名
+git config --global user.email "1656213092@qq.com"         本人双邮箱
+git config --global user.email "2428284043@qq.com"
+git clone url                                              克隆主仓库
+git init                                                   初始化仓库
+git add .                                                  全部加入暂存区
+git branch -M main                                         创建main分支并切换
+git commit -m "feat: 这里是备注"                           提交
+git remote add origin url                                  添加远程地址
+git push -u origin main                                    提交到远程main
+
+git clone -b 分支名 地址                                   克隆分仓库
+git status -s                                              查看状态
+git checkout  远程分支名称                                 将远分支下本地
 ```
 
-## Get started
+## SSH 配置
 
-Create a git repository
+1、打开 git bash 粘贴下面代码，邮箱记得改自己的
 
 ```shell
-git init
+ssh-keygen -t rsa -b 4096 -C "1656213092@qq.com"
+ssh-keygen -t rsa -b 4096 -C "2428284043@qq.com"
 ```
 
-Clone an existing git repository
+然后回车 3 次 生成文件在 C:\Users\Administrator\\.ssh 中打开 id_rsa.pub 复制里面内容
+
+2、登录 github 点头像-setting-ssh and... -New SSH key
+
+将刚刚复制的粘贴到 key 对应文本框 在 title 文本框里任意写一个名称
+
+3、在 bash 里输入
 
 ```shell
-git clone [url]
+ssh -T git@github.com
 ```
 
-## Commit
-
-Commit all tracked changes
-
-```shell
-git commit -am "[commit message]"
-```
-
-Add new modifications to the last commit
-
-```shell
-git commit --amend --no-edit
-```
-
-## I’ve made a mistake
-
-Change last commit message
-
-```shell
-git commit --amend
-```
-
-Undo most recent commit and keep changes
-
-```shell
-git reset HEAD~1
-```
-
-Undo the `N` most recent commit and keep changes
-
-```shell
-git reset HEAD~N
-```
-
-Undo most recent commit and get rid of changes
-
-```shell
-git reset HEAD~1 --hard
-```
-
-Reset branch to remote state
-
-```shell
-git fetch origin
-git reset --hard origin/[branch-name]
-```
-
-## Miscellaneous
-
-Renaming the local master branch to main
-
-```shell
-git branch -m master main
-```
+在输入 yes 就会欢迎，配置成功
