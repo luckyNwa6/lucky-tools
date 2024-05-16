@@ -153,7 +153,6 @@ function convertToLittleEndian(data: string) {
  * @returns {number} 大端处理后的结果
  */
 function convertToBigEndian(decimalArray: any) {
-  // console.log("接收", decimalArray);
   if (decimalArray.length > 0) {
     // 使用map()方法将十进制数组转换为十六进制数组。
     const hexArray = decimalArray.map((num: any) => num.toString(16));
@@ -162,14 +161,10 @@ function convertToBigEndian(decimalArray: any) {
     // 使用map()方法和模板字符串或join()方法来拼接十六进制字符串
     let hexString = reversedHexArray
       .map((hex: string) => {
-        if (parseInt(hex, 16) < 16) {
-          return '0' + hex;
-        }
+        hex = hex.padStart(2, 0);
         return hex;
       })
       .join('');
-
-    // console.log("dataStr", hexString);
     return parseInt(hexString, 16);
   } else {
     let emptyString = null;
@@ -185,7 +180,7 @@ function numToHex(num: string) {
   let str: string = '';
   let number: number = parseInt(num);
   str = number.toString(16);
-  str = str.length == 1 ? '0' + str : str;
+  str = str.padStart(4, '0');
   return str;
 }
 </script>
