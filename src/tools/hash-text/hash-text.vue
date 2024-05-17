@@ -32,6 +32,8 @@ function formatWithEncoding(words: lib.WordArray, encoding: Encoding) {
 }
 
 const hashText = (algo: AlgoNames, value: string) => formatWithEncoding(algos[algo](value), encoding.value);
+
+console.log('cess', hashText('MD5', '20230908001809439helloluckyNwa666PEXtjvB3p2CoLF5TNEa3'));
 </script>
 
 <template>
