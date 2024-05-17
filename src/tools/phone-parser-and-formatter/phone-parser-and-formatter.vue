@@ -16,7 +16,7 @@ const validation = useValidation({
   source: rawPhone,
   rules: [
     {
-      validator: value => value === '' || /^[0-9 +\-()]+$/.test(value),
+      validator: (value) => value === '' || /^[0-9 +\-()]+$/.test(value),
       message: 'Invalid phone number',
     },
   ],
@@ -35,49 +35,45 @@ const parsedDetails = computed(() => {
 
   return [
     {
-      label: 'Country',
-      value: parsed.country,
+      label: '归属地',
+      value: getFullCountryName(parsed.country) + '(' + parsed.country + ')',
     },
     {
-      label: 'Country',
-      value: getFullCountryName(parsed.country),
-    },
-    {
-      label: 'Country calling code',
+      label: '归属码',
       value: parsed.countryCallingCode,
     },
     {
-      label: 'Is valid?',
+      label: '是否 合法?',
       value: booleanToHumanReadable(parsed.isValid()),
     },
     {
-      label: 'Is possible?',
+      label: '是否 可行?',
       value: booleanToHumanReadable(parsed.isPossible()),
     },
     {
-      label: 'Type',
+      label: '类型',
       value: formatTypeToHumanReadable(parsed.getType()),
     },
     {
-      label: 'International format',
+      label: '国际 格式化',
       value: parsed.formatInternational(),
     },
     {
-      label: 'National format',
+      label: '本地 格式化',
       value: parsed.formatNational(),
     },
     {
-      label: 'E.164 format',
+      label: 'E.164 格式化',
       value: parsed.format('E.164'),
     },
     {
-      label: 'RFC3966 format',
+      label: 'RFC3966 格式化',
       value: parsed.format('RFC3966'),
     },
   ];
 });
 
-const countriesOptions = getCountries().map(code => ({
+const countriesOptions = getCountries().map((code) => ({
   label: `${lookup.byIso(code)?.country || code} (+${getCountryCallingCode(code)})`,
   value: code,
 }));
@@ -85,7 +81,13 @@ const countriesOptions = getCountries().map(code => ({
 
 <template>
   <div>
-    <c-select v-model:value="defaultCountryCode" label="Default country code:" :options="countriesOptions" searchable mb-5 />
+    <c-select
+      v-model:value="defaultCountryCode"
+      label="Default country code:"
+      :options="countriesOptions"
+      searchable
+      mb-5
+    />
 
     <c-input-text
       v-model:value="rawPhone"
@@ -103,9 +105,7 @@ const countriesOptions = getCountries().map(code => ({
           </td>
           <td>
             <span-copyable v-if="value" :value="value" />
-            <span v-else op-70>
-              Unknown
-            </span>
+            <span v-else op-70> Unknown </span>
           </td>
         </tr>
       </tbody>
