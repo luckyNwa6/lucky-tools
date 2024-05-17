@@ -2,7 +2,7 @@
  * @Author: Zhihui Zhou
  * @Date: 2024-05-17 17:15:15
  * @LastEditors: Zhihui Zhou
- * @LastEditTime: 2024-05-17 18:01:23
+ * @LastEditTime: 2024-05-17 18:22:58
  * @Description: 
 -->
 <template>
@@ -30,7 +30,7 @@
     </div>
     <n-divider />
     <div>
-      计算结果：
+      计算结果(低位在前，高位在后)：
     </div>
     <c-input-text
       v-model:value="crcResult"
@@ -38,7 +38,7 @@
       readonly
       autosize
     />
-    <!-- <div
+    <div
       flex
       justify-center
       mt-5
@@ -46,7 +46,7 @@
       <c-button @click="copyResult()">
         复制
       </c-button>
-    </div> -->
+    </div>
   </c-card>
 </template>
 <script lang="ts" setup>
@@ -80,7 +80,7 @@ const strInputValidation = useValidation({
 const crcResult = ref('');
 
 // 复制方法
-const { copy } = useCopy({ source: crcResult.value, text: '复制成功' });
+const { copy } = useCopy({ source: crcResult, text: '复制成功' });
 
 // 复制结果
 const copyResult = () => {
