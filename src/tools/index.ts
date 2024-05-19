@@ -83,15 +83,29 @@ import { tool as xmlFormatter } from './xml-formatter';
 import { tool as yamlViewer } from './yaml-viewer';
 import { tool as hexConverter } from './hex-converter';
 import { tool as crc16Modbus } from './crc16-modbus';
-
+import { tool as translate } from './lucky-translate';
 export const toolsByCategory: ToolCategory[] = [
   {
     name: 'Crypto',
-    components: [tokenGenerator, hashText, bcrypt, uuidGenerator, ulidGenerator, cypher, bip39, hmacGenerator, rsaKeyPairGenerator, passwordStrengthAnalyser, pdfSignatureChecker,crc16Modbus],
+    components: [
+      tokenGenerator,
+      hashText,
+      bcrypt,
+      uuidGenerator,
+      ulidGenerator,
+      cypher,
+      bip39,
+      hmacGenerator,
+      rsaKeyPairGenerator,
+      passwordStrengthAnalyser,
+      pdfSignatureChecker,
+      crc16Modbus,
+    ],
   },
   {
     name: 'Converter',
     components: [
+      translate,
       hexConverter,
       dateTimeConverter,
       baseConverter,
@@ -110,7 +124,6 @@ export const toolsByCategory: ToolCategory[] = [
       listConverter,
       tomlToJson,
       tomlToYaml,
-      
     ],
   },
   {
@@ -156,7 +169,14 @@ export const toolsByCategory: ToolCategory[] = [
   },
   {
     name: 'Network',
-    components: [ipv4SubnetCalculator, ipv4AddressConverter, ipv4RangeExpander, macAddressLookup, macAddressGenerator, ipv6UlaGenerator],
+    components: [
+      ipv4SubnetCalculator,
+      ipv4AddressConverter,
+      ipv4RangeExpander,
+      macAddressLookup,
+      macAddressGenerator,
+      ipv6UlaGenerator,
+    ],
   },
   {
     name: 'Math',
@@ -186,5 +206,5 @@ export const toolsByCategory: ToolCategory[] = [
 
 export const tools = toolsByCategory.flatMap(({ components }) => components);
 export const toolsWithCategory = toolsByCategory.flatMap(({ components, name }) =>
-  components.map(tool => ({ category: name, ...tool })),
+  components.map((tool) => ({ category: name, ...tool })),
 );

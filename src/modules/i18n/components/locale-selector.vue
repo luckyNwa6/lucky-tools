@@ -14,7 +14,7 @@ const localesLong: Record<string, string> = {
 };
 
 const localeOptions = computed(() =>
-  availableLocales.map(locale => ({
+  availableLocales.map((locale) => ({
     label: localesLong[locale] ?? locale,
     value: locale,
   })),
@@ -22,10 +22,5 @@ const localeOptions = computed(() =>
 </script>
 
 <template>
-  <c-select
-    v-model:value="locale"
-    :options="localeOptions"
-    placeholder="Select a language"
-    w-100px
-  />
+  <c-select v-model:value="locale" :options="localeOptions" placeholder="Select a language" w-100px />
 </template>
