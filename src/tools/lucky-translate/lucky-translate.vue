@@ -103,7 +103,7 @@ const { copy: copyZh } = useCopy({
         <n-form-item>
           <c-input-text v-model:value="q" :min="1" style="width: 200px" :show-button="false" placeholder="请输入中文" />
         </n-form-item>
-        <c-button variant="basic" type="default" size="small" mx-1 @click="translateText2">===点===</c-button>
+        <c-button variant="basic" type="default" size="small" mx-1 @click="translateText">===点===</c-button>
         <div class="result">{{ ResultEn }}</div>
         <c-button autofocus @click="copyEn()"> Copy </c-button>
       </div>
@@ -111,7 +111,7 @@ const { copy: copyZh } = useCopy({
     <c-card title="英文 转 中文" mt-5>
       <div flex items-center justify-between>
         <c-input-text v-model:value="q2" placeholder="请输入英文" style="width: 200px" />
-        <c-button variant="basic" type="default" size="small" mx-1 @click="translateText">===点===</c-button>
+        <c-button variant="basic" type="default" size="small" mx-1 @click="translateText2">===点===</c-button>
         <div class="result">{{ ResultZh }}</div>
         <c-button @click="copyZh()"> Copy </c-button>
       </div>
