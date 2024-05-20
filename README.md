@@ -65,6 +65,10 @@ https://mytool.luckynwa.top/
 
 方法2：
 
+采用CICD自动化部署项目到云服务器
+
+方法3：
+
 先build打包，只需配置dockerfile文件即可，
 配置如下
 
