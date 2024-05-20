@@ -79,7 +79,7 @@ const numInputValidation = useValidation({
   ],
 });
 
-// 输入的十进制数据
+// 输入的十六进制数据
 const inputHex = ref('');
 // 校验
 const hexInputValidation = useValidation({
