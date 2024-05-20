@@ -23,6 +23,8 @@ git checkout  远程分支名称                                 将远分支下
 1、打开 git bash 粘贴下面代码，邮箱记得改自己的
 
 ```shell
+git config --global user.name "luckyNwa"
+git config --global user.name "luckyNwa6"
 ssh-keygen -t rsa -b 4096 -C "1656213092@qq.com"
 ssh-keygen -t rsa -b 4096 -C "2428284043@qq.com"
 ```
