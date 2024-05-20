@@ -84,6 +84,7 @@ import { tool as yamlViewer } from './yaml-viewer';
 import { tool as hexConverter } from './hex-converter';
 import { tool as crc16Modbus } from './crc16-modbus';
 import { tool as translate } from './lucky-translate';
+import {tool as IEEE754Converter} from './IEEE754-converter';
 export const toolsByCategory: ToolCategory[] = [
   {
     name: 'Crypto',
@@ -107,6 +108,7 @@ export const toolsByCategory: ToolCategory[] = [
     components: [
       translate,
       hexConverter,
+      IEEE754Converter,
       dateTimeConverter,
       baseConverter,
       romanNumeralConverter,
