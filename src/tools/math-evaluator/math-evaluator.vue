@@ -7,7 +7,12 @@
         </button>
       </div>
     </c-card>
-    <c-card mb-5> Running: {{ result2 }} </c-card>
+    <c-card mb-5>
+      <div mb-5>过程: {{ process }}</div>
+      <div>
+        结果: <span v-if="isShowResult2"> {{ result2 }}</span>
+      </div>
+    </c-card>
     <c-input-text
       v-model:value="expression"
       rows="1"
@@ -35,18 +40,25 @@ import { withDefaultOnError } from '@/utils/defaults';
 // 响应式变量
 const expression = ref('');
 const result2 = ref('');
-
+const process = ref(''); //计算过程
+const isShowResult2 = ref(false);
 // 按钮列表，添加一个 "X" 按钮用于清空
 const buttons = ['7', '8', '9', '=', 'X', '4', '5', '6', '+', '-', '1', '2', '3', '*', '/', '.', '0'];
 
 // 处理按钮点击事件
 const handleClick = (button: string) => {
   if (button === 'X') {
+    isShowResult2.value = false;
     result2.value = '';
+    process.value = '';
   } else if (button === '=') {
+    isShowResult2.value = true;
+    process.value = '(' + process.value + ')';
     calculate();
   } else {
+    isShowResult2.value = false;
     result2.value += button;
+    process.value += button;
   }
 };
 
