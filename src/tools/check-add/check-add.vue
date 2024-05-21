@@ -1,21 +1,13 @@
 <!--
  * @Author: Zhihui Zhou
- * @Date: 2024-05-17 17:15:15
+ * @Date: 2024-05-21 09:39:13
  * @LastEditors: Zhihui Zhou
- * @LastEditTime: 2024-05-21 10:40:46
+ * @LastEditTime: 2024-05-21 10:08:03
  * @Description: 
 -->
 <template>
-  <c-card :title="crcType=='modbus'?'CRC-16/MODBUS  x16+x15+x2+1':'CRC-16/CCITT-FALSE  x16+x12+x5+1'">
-    <c-buttons-select
-      v-model:value="crcType"
-      :options="crcTypeList"
-      label="校验类型:"
-      label-width="150px"
-      label-align="left"
-      mt-5
-    />
-    <div mt-10>
+  <c-card title="校验和计算">
+    <div>
       需要校验的数据：
     </div>
     <c-input-text
@@ -38,7 +30,7 @@
     </div>
     <n-divider />
     <div>
-      计算结果(低位在前，高位在后)：
+      计算结果：
     </div>
     <c-input-text
       v-model:value="crcResult"
@@ -61,13 +53,6 @@
 import { ref } from 'vue';
 import { useCopy } from '@/composable/copy';
 import { useValidation } from '@/composable/validation';
-import { CRC16_MODBUS, CRC16_CCITT_FALSE } from './crc16.js';
-
-const crcTypeList = [
-  { label: 'CRC16_MODBUS', value: 'modbus' },
-  { label: 'CRC16_CCITT_FALSE', value: 'ccittFalse' },
-];
-const crcType = ref(crcTypeList[0].value);
 
 // 输入的字符串
 const inputStr = ref('');
@@ -116,16 +101,10 @@ const toCalculation = () => {
   let numArr = hexArrtoNumArr(hexArr);
 
   // 计算结果
-  let crcData = [];
-  if (crcType.value == 'modbus') {
-    crcData = CRC16_MODBUS(numArr, numArr.length);
-  } else {
-    crcData = CRC16_CCITT_FALSE(numArr, numArr.length);
-  }
-
-  // console.log('校验结果', crcData);
+  let checkAddData = checkAdd(numArr);
+  // console.log('校验结果', checkAddData);
   // 展示结果
-  crcResult.value = crcData.join(' ');
+  crcResult.value = checkAddData;
 };
 
 // 分割字符为十六进制数组
@@ -161,6 +140,58 @@ const trim = (str: string) => {
   }
   return trimStr;
 };
+
+// 累加检验和
+function checkAdd(c_dp: number[]) {
+  let sum_a = 0,
+    sum_b = 0;
+  for (let i = 0; i < c_dp.length; i++) {
+    sum_a += c_dp[i]; // 从数组第一个元素开始累加
+    sum_b ^= c_dp[i];
+  }
+  let result_a = decimalToHex(sum_a);
+  let result_b = numToHex(sum_b).toUpperCase();
+  if (result_a.length > 2) {
+    return result_a;
+  } else {
+    return result_a + ' ' + result_b;
+  }
+}
+
+// 十进制转一位十六进制字符
+function decimalToHex(decimalData: number) {
+  // 将十进制数据转换为二进制字符串
+  const binaryString = decimalData.toString(2);
+
+  // 如果二进制字符串长度不足八位，则在左侧填充0，直到长度为八位
+  const paddedBinary = binaryString.padStart(8, '0');
+  // 截取二进制字符串的后八位
+  let eightBits = '';
+  // 将截取的八位二进制字符串转换为十六进制
+  let hexValue = '';
+  if (paddedBinary.length > 16) {
+    eightBits = paddedBinary.slice(-16);
+    let hexStr = parseInt(eightBits, 2).toString(16).toUpperCase().padStart(4, '0');
+    hexValue = hexStr[2] + hexStr[3] + ' ' + hexStr[0] + hexStr[1];
+  } else {
+    eightBits = paddedBinary.slice(-8);
+    hexValue = parseInt(eightBits, 2).toString(16).toUpperCase().padStart(2, '0');
+  }
+
+  return hexValue;
+}
+
+/**
+ * 十进制数转十六进制字符
+ * @param {Object} num
+ */
+function numToHex(num: number) {
+  let str = '';
+  let number = parseInt(num);
+  str = number.toString(16);
+  str = str.length == 1 ? '0' + str : str;
+  return str;
+}
 </script>
 
 <style lang="less" scoped>

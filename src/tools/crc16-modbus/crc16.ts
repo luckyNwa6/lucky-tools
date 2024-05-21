@@ -2,7 +2,7 @@
  * @Author: Zhihui Zhou
  * @Date: 2024-05-15 16:56:05
  * @LastEditors: Zhihui Zhou
- * @LastEditTime: 2024-05-17 17:45:47
+ * @LastEditTime: 2024-05-21 10:36:06
  * @Description: modbus校验核心方法
  */
 /**
@@ -10,7 +10,7 @@
  * @param {Object} ptr 十进制数组
  * @param {Object} len 该数组长度
  */
-function crcYu(ptr:number[], len:number) {
+function CRC16_MODBUS(ptr:number[], len:number) {
 	/* CRC余式表 */
 	const CRCtbl = [
 		0x0000, 0xC0C1, 0xC181, 0x0140, 0xC301, 0x03C0, 0x0280, 0xC241,
@@ -100,6 +100,28 @@ function Ab2Hex(buffer:number[]) {
 	return hexArr;
 }
 
+// crc校验
+function CRC16_CCITT_FALSE(c_dp:number[], len:number) {
+	let crc = 0xFFFF;
+	for (let i = 0; i < len; i++) {
+		crc ^= (c_dp[i] << 8);
+
+		for (let j = 0; j < 8; j++) {
+			if (crc & 0x8000)
+				crc = (crc << 1) ^ 0x1021;
+			else
+				crc = crc << 1;
+		}
+	}
+	let crcResult = crc & 0xFFFF
+	const crcHex = crcResult.toString(16).toUpperCase().padStart(4, '0');
+	let littleEndian = []
+	littleEndian[0] =  crcHex.slice(2, 4);
+	littleEndian[1] =  crcHex.slice(0, 2);
+	return littleEndian;
+}
+
 export {
-	crcYu
+	CRC16_MODBUS,
+	CRC16_CCITT_FALSE
 };

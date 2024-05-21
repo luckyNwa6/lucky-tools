@@ -85,6 +85,7 @@ import { tool as hexConverter } from './hex-converter';
 import { tool as crc16Modbus } from './crc16-modbus';
 import { tool as translate } from './lucky-translate';
 import {tool as IEEE754Converter} from './IEEE754-converter';
+import { tool as checkAdd } from './check-add';
 export const toolsByCategory: ToolCategory[] = [
   {
     name: 'Crypto',
@@ -101,6 +102,7 @@ export const toolsByCategory: ToolCategory[] = [
       passwordStrengthAnalyser,
       pdfSignatureChecker,
       crc16Modbus,
+      checkAdd
     ],
   },
   {
