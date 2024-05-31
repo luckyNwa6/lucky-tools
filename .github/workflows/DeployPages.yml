@@ -1,9 +1,9 @@
 name: 部署纯静态网站到GitHub服务器上
 
 on:
-  # 提交到main分支触发CI/CD
+  # 提交到main分支触发部署到当前静态服务器
   push:
-    branches: [luckyDev]
+    branches: [main]
 
   # 允许从Actions选项卡手动运行此工作流
   workflow_dispatch:

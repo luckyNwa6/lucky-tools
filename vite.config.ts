@@ -16,9 +16,9 @@ import markdown from 'vite-plugin-vue-markdown';
 import svgLoader from 'vite-svg-loader';
 import { configDefaults } from 'vitest/config';
 
-// const baseUrl = process.env.BASE_URL ?? '/';
+const baseUrl = process.env.BASE_URL ?? '/';
 
-const baseUrl = '/lucky-tools/';
+// const baseUrl = '/lucky-tools/';//这个可以静态部署到github但是云服务器那就不行了
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
