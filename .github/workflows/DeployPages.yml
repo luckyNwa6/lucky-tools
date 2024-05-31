@@ -25,21 +25,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 检出代码
-        uses: actions/checkout@v4
+      # 官方action, 将代码拉取到虚拟机
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # 如果未启用lastUpdated则不需要
-      - name: 设置Node.js
-        uses: actions/setup-node@v4
+          persist-credentials: false
+
+      # 安装node.js
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-          cache: pnpm # 或者 pnpm / yarn
-      - name: 设置Pages
-        uses: actions/configure-pages@v4
-      - name: 安装依赖
-        run: pnpm install # 或者 pnpm install / yarn install / bun install
-      - name: 使用VitePress构建
-        run: pnpm run build # 或者 pnpm docs:build / yarn docs:build / bun run docs:build
+          node-version: '18.16.1'
+      # 全局安装 pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 下载依赖、打包项目
+      - name: Install and Build
+        run: |
+          pnpm install
+          pnpm run build
+
       - name: 上传工件
         uses: actions/upload-pages-artifact@v3
         with:
