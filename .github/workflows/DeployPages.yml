@@ -1,0 +1,58 @@
+name: 部署纯静态网站到GitHub服务器上
+
+on:
+  # 提交到main分支触发CI/CD
+  push:
+    branches: [luckyDev]
+
+  # 允许从Actions选项卡手动运行此工作流
+  workflow_dispatch:
+
+# 设置GITHUB_TOKEN的权限以允许部署到GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 仅允许一个并发部署，跳过在进行中和最新排队之间排队的运行。
+# 但是，不要取消进行中的运行，因为我们希望允许这些生产部署完成。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # 构建任务
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 如果未启用lastUpdated则不需要
+      - name: 设置Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm # 或者 pnpm / yarn
+      - name: 设置Pages
+        uses: actions/configure-pages@v4
+      - name: 安装依赖
+        run: pnpm install # 或者 pnpm install / yarn install / bun install
+      - name: 使用VitePress构建
+        run: pnpm run build # 或者 pnpm docs:build / yarn docs:build / bun run docs:build
+      - name: 上传工件
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: 部署
+    steps:
+      - name: 部署到GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
