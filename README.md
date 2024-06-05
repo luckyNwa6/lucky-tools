@@ -61,7 +61,9 @@ fix: 修复 bug
 
 由于是静态直接放主服务器下,通过域名去访问了
 
-https://mytool.luckynwa.top/
+https://mytool.luckynwa.top/lucky-tools/
+
+备用地址:https://luckynwa6.github.io/lucky-tools/
 
 方法2：
 

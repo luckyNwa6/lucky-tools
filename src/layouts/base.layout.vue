@@ -60,9 +60,10 @@ const tools = computed<ToolCategory[]>(() => [
         <CollapsibleToolMenu :tools-by-category="tools" />
 
         <div class="footer">
+          <a href="https://mytool.luckynwa.top/lucky-tools/">主地址</a>
+          <a href="https://luckynwa6.github.io/lucky-tools/">备用地址</a>
           <div>
-            lucky-tools
-
+            Lucky-Tools
             <!-- <c-link target="_blank" rel="noopener" href="https://github.com/luckyNwa6/lucky-tools"> -->
             v{{ version }}
             <!-- </c-link> -->
