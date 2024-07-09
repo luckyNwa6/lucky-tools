@@ -387,3 +387,9 @@ tools:
   text-to-binary:
     title: 文本到 ASCII 二进制
     description: 将文本转换为其 ASCII 二进制表示形式，反之亦然。
+  lucky-translate:
+    title: 翻译
+    description: 调用百度Api实现翻译，额度有限，禁止乱用！感谢配合。
+  lucky-pic-generation:
+    title: 图片生成
+    description: 调用第三方url直接生成图片，备用地址+科学稳定出图。

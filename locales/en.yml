@@ -391,3 +391,9 @@ tools:
   text-to-binary:
     title: Text to ASCII binary
     description: Convert text to its ASCII binary representation and vice-versa.
+  lucky-translate:
+    title: translate
+    description: Calling Baidu Api for translation, limited quota, no unauthorized use! Thank you for your cooperation.
+  lucky-pic-generation:
+    title: pic-generation
+    description: Calling third-party URLs to directly generate images.

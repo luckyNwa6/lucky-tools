@@ -83,8 +83,9 @@ import { tool as xmlFormatter } from './xml-formatter';
 import { tool as yamlViewer } from './yaml-viewer';
 import { tool as hexConverter } from './hex-converter';
 import { tool as crc16Modbus } from './crc16-modbus';
-import { tool as translate } from './lucky-translate';
-import {tool as IEEE754Converter} from './IEEE754-converter';
+import { tool as luckyTranslate } from './lucky-translate';
+import { tool as luckyPicGeneration } from './lucky-pic-generation';
+import { tool as IEEE754Converter } from './IEEE754-converter';
 export const toolsByCategory: ToolCategory[] = [
   {
     name: 'Crypto',
@@ -106,7 +107,7 @@ export const toolsByCategory: ToolCategory[] = [
   {
     name: 'Converter',
     components: [
-      translate,
+      luckyTranslate,
       hexConverter,
       IEEE754Converter,
       dateTimeConverter,
@@ -151,7 +152,7 @@ export const toolsByCategory: ToolCategory[] = [
   },
   {
     name: 'Images and videos',
-    components: [qrCodeGenerator, wifiQrCodeGenerator, svgPlaceholderGenerator, cameraRecorder],
+    components: [luckyPicGeneration, qrCodeGenerator, wifiQrCodeGenerator, svgPlaceholderGenerator, cameraRecorder],
   },
   {
     name: 'Development',
