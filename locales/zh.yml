@@ -91,6 +91,7 @@ tools:
     button:
       copy: 复制
       refresh: 刷新
+
   percentage-calculator:
     title: 百分比计算器
     description: 轻松计算从一个值到另一个值的百分比，或从百分比到值的百分比。
@@ -387,9 +388,29 @@ tools:
   text-to-binary:
     title: 文本到 ASCII 二进制
     description: 将文本转换为其 ASCII 二进制表示形式，反之亦然。
+  #lucky添加
   lucky-translate:
     title: 翻译
     description: 调用百度Api实现翻译，额度有限，禁止乱用！感谢配合。
   lucky-pic-generation:
     title: 图片生成
     description: 调用第三方url直接生成图片，备用地址+科学稳定出图。
+  lucky-regular:
+    title: 正则表达式
+    description: 方便查看自己的正则表达式是否正确。
+  #下面是辉哥加的
+  ascii-text-drawer:
+    title: ASCII Art Text Generator
+    description: Create ASCII art text with many fonts and styles。
+  crc16-modbus:
+    title: CRC16/MODBUS 校验
+    description: 循环冗余校验。
+  hex-converter:
+    title: 十六进制大小端处理
+    description: 十进制与十六进制数据在大小端状态下的互相转化。
+  IEEE754-converter:
+    title: IEEE 754 单精度浮点数转换
+    description: IEEE 754 单精度浮点数与十进制数据互相转化（语言限制，略有误差）。
+  safelink-decoder:
+    title: Outlook Safelink decoder
+    description: Decode Outlook SafeLink links。

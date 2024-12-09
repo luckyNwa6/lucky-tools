@@ -84,6 +84,7 @@ import { tool as yamlViewer } from './yaml-viewer';
 import { tool as hexConverter } from './hex-converter';
 import { tool as crc16Modbus } from './crc16-modbus';
 import { tool as luckyTranslate } from './lucky-translate';
+import { tool as luckyRegular } from './lucky-regular';
 import { tool as luckyPicGeneration } from './lucky-pic-generation';
 import { tool as IEEE754Converter } from './IEEE754-converter';
 export const toolsByCategory: ToolCategory[] = [
@@ -168,6 +169,7 @@ export const toolsByCategory: ToolCategory[] = [
       dockerRunToDockerComposeConverter,
       xmlFormatter,
       yamlViewer,
+      luckyRegular,
     ],
   },
   {
