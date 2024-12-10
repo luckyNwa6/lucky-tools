@@ -107,8 +107,8 @@ const tools = computed<ToolCategory[]>(() => [
             <NIcon size="25" :component="Home2" />
           </c-button>
         </c-tooltip>
-
-        <c-tooltip :tooltip="$t('home.uiLib')" position="bottom">
+        <!-- c的语法部署后看有bug直接关闭好了 -->
+        <!-- <c-tooltip :tooltip="$t('home.uiLib')" position="bottom">
           <c-button
             v-if="config.app.env === 'development'"
             to="/c-lib"
@@ -118,7 +118,7 @@ const tools = computed<ToolCategory[]>(() => [
           >
             <icon-mdi:brush-variant text-20px />
           </c-button>
-        </c-tooltip>
+        </c-tooltip> -->
 
         <command-palette />
 
