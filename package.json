@@ -22,6 +22,7 @@
   "scripts": {
     "i": "pnpm install",
     "dev": "vite --open",
+    "node16":"nvm use 16",
     "build": "vue-tsc --noEmit && NODE_OPTIONS=--max_old_space_size=4096 vite build",
     "clean": "npx rimraf node_modules",
     "preview": "vite preview --port 5050",
